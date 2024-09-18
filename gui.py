@@ -10,15 +10,22 @@ class MyWindow(customtkinter.CTk):
         self.entryStop = customtkinter.CTkEntry(self, placeholder_text="Stop Percentage")
         self.entryStop.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
 
-        self.button = customtkinter.CTkButton(self, text="Click me", command=self.on_button_click)
+        self.button = customtkinter.CTkButton(self, text="Set", command=self.on_button_click)
         self.button.place(relx=0.5, rely=0.85, anchor=customtkinter.CENTER)
+
+        self.textbox = customtkinter.CTkTextbox(self)
+        self.textbox.place(relx=0, rely=1, anchor=customtkinter.SW)
+        self.textbox.configure(height = 10, width = 400)
+
+        self.textbox.insert("0.0", "new text to insert")
 
     
     def on_button_click(self):
         start = self.entryStart.get()
         stop = self.entryStop.get()
-        
-        print(start + stop)
+            
+        self.textbox.delete("0.0", "end")
+        self.textbox.insert("0.0","DONE! - start:" + start + " stop:" + stop)
 
 
 app = MyWindow()
