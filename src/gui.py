@@ -1,4 +1,5 @@
 import customtkinter
+import sys
 from modify import Modify
 
 
@@ -32,7 +33,7 @@ class MyWindow(customtkinter.CTk):
             or not start.isdigit()
             or not stop.isdigit()
             or int(start) >= int(stop)
-            or int(start) < 0
+            or int(start) < 1
             or int(stop) > 100
         ):
             self.textbox.delete("0.0", "end")
@@ -49,6 +50,6 @@ class MyWindow(customtkinter.CTk):
         self.textbox.configure(height=10, width=400)
         self.textbox.insert("0.0", "insert values and click set")
 
-
-app = MyWindow()
-app.mainloop()
+    def on_closing(self):
+        self.destroy()
+        sys.exit(0)
