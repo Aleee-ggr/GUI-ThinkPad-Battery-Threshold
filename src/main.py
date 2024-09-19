@@ -4,7 +4,7 @@ import subprocess
 
 def check_sudo():
     try:
-        subprocess.run(["pkexec", "-v"], check=True)
+        subprocess.run(["pkexec", "true"], check=True)
     except subprocess.CalledProcessError:
         return False
     return True

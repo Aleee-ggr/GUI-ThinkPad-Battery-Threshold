@@ -5,18 +5,17 @@ import subprocess
 class Modify:
     def __init__(self, v1, v2):
         self.path = "/sys/class/power_supply/BAT0/"
-        self.v1 = v1
-        self.v2 = v2
-        self.modify_charge_thresholds()
+        self.modify_charge_thresholds(0, 100)
+        self.modify_charge_thresholds(v1, v2)
 
-    def modify_charge_thresholds(self):
+    def modify_charge_thresholds(self, v1, v2):
         try:
             subprocess.run(
                 [
                     "sudo",
                     "bash",
                     "-c",
-                    f"echo {self.v1} > {self.path}charge_start_threshold",
+                    f"echo {v1} > {self.path}charge_start_threshold",
                 ],
                 check=True,
             )
@@ -25,7 +24,7 @@ class Modify:
                     "sudo",
                     "bash",
                     "-c",
-                    f"echo {self.v2} > {self.path}charge_stop_threshold",
+                    f"echo {v2} > {self.path}charge_stop_threshold",
                 ],
                 check=True,
             )
