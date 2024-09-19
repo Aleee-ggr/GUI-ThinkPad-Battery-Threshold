@@ -6,7 +6,8 @@ from modify import Modify
 class MyWindow(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-        self.geometry("400x400")
+        self.geometry("400x300")
+        self.title("Battery Thresholds")
         self.entryStart = customtkinter.CTkEntry(
             self, placeholder_text="Start Percentage"
         )
@@ -20,7 +21,7 @@ class MyWindow(customtkinter.CTk):
         self.button = customtkinter.CTkButton(
             self, text="Set", command=self.on_button_click
         )
-        self.button.place(relx=0.5, rely=0.85, anchor=customtkinter.CENTER)
+        self.button.place(relx=0.5, rely=0.80, anchor=customtkinter.CENTER)
 
         self.setupFeedbackText()
 
