@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY HOME=$HOME bash -c "source $PWD/ThinkPadVenv/bin/activate && python3 $PWD/src/main.py"
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY HOME=$HOME bash -c "source $HOME/.../venv/bin/activate && python3 $HOME/.../src/main.py"
